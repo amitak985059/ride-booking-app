@@ -53,6 +53,8 @@ module.exports.loginUser = async (req, res, next) => {
         // Generate JWT token
         const token = user.generateAuthToken();
 
+        res.cookie('token', token) // added without using headers it will help to show the logged in user
+
         res.status(200).json({ user, token });
     } catch (error) {
         next(error);
