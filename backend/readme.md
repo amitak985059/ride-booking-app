@@ -1,6 +1,8 @@
-# User Registration API Documentation
+# User Authentication API Documentation
 
-## Endpoint: `/users/register`
+## **1. User Registration**
+
+### **Endpoint:** `/users/register`
 
 ### **Method:** `POST`
 
@@ -88,12 +90,6 @@ This endpoint allows new users to register by providing their details. If the em
 ```
 
 ---
-## **Notes:**
-- Ensure the email is unique.
-- Password must be at least 6 characters long.
-- The API returns a JWT token upon successful registration.
-
----
 ## **Example cURL Request:**
 ```sh
 curl -X POST http://localhost:4000/users/register \
@@ -104,4 +100,90 @@ curl -X POST http://localhost:4000/users/register \
     "password": "securepassword"
 }'
 ```
+
+---
+## **2. User Login**
+
+### **Endpoint:** `/users/login`
+
+### **Method:** `POST`
+
+### **Description:**
+This endpoint allows users to log in by providing their registered email and password. If credentials are valid, a JWT token is returned.
+
+---
+## **Request Format**
+### **Headers:**
+```json
+{
+  "Content-Type": "application/json"
+}
+```
+
+### **Body Parameters (JSON):**
+```json
+{
+  "email": "johndoe@example.com",
+  "password": "securepassword"
+}
+```
+
+#### **Field Requirements:**
+- `email` (string, required, must be a valid email)
+- `password` (string, required)
+
+---
+## **Response Format**
+
+### **Success Response:**
+- **Status Code:** `200 OK`
+- **Response Body:**
+```json
+{
+  "user": {
+    "_id": "60b8d295f72e3b001f3d5e6a",
+    "fullname": {
+      "firstname": "John",
+      "lastname": "Doe"
+    },
+    "email": "johndoe@example.com"
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI..."
+}
+```
+
+### **Error Responses:**
+#### 1️⃣ **Invalid Credentials**
+- **Status Code:** `401 Unauthorized`
+- **Response:**
+```json
+{
+  "message": "Invalid email or password"
+}
+```
+
+#### 2️⃣ **Missing Required Fields**
+- **Status Code:** `400 Bad Request`
+- **Response:**
+```json
+{
+  "error": "Email and password are required"
+}
+```
+
+---
+## **Example cURL Request:**
+```sh
+curl -X POST http://localhost:4000/users/login \
+-H "Content-Type: application/json" \
+-d '{
+    "email": "johndoe@example.com",
+    "password": "securepassword"
+}'
+```
+
+---
+### **Notes:**
+- Ensure email and password are correct.
+- The API returns a JWT token upon successful login.
 
