@@ -67,3 +67,6 @@ const errors = validationResult(req);
     if(!errors.isEmpty()){
         return res.status(400).json({errors: errors.array() });
     }
+
+
+chatGpt: link: https://chatgpt.com/c/67e44696-5f94-800c-845c-cbf68acd6427
