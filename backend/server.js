@@ -7,5 +7,5 @@ const server = http.createServer(app);
 
 
 server.listen(port, ()=>{
-    console.log(`server is running on port ${port}`);
+    console.log(`server is running on port http://localhost:${port}`);
 })
