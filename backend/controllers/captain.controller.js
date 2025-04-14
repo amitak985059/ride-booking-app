@@ -21,7 +21,7 @@ module.exports.registerCaptain = async (req, res, next) => {
     const captain = await captainService.createCaptain({
         firstname: fullname.firstname, lastname: fullname.lastname, email, password: hashPassword, 
         color: vehicle.color,
-        plate: vehicle.color,
+        plate: vehicle.plate,
         capacity: vehicle.capacity,
         vehicleType: vehicle.vehicleType
     })
