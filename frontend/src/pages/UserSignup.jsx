@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { UserDataContext } from '../context/UserContext';
+import { UserContext } from '../context/UserContext';
 
 const UserSignup = () => {
 
@@ -12,7 +12,7 @@ const UserSignup = () => {
   const [userData, setUserData] = useState({});
 
   const navigate = useNavigate();
-  const {user, setUser} = React.useContext(UserDataContext);
+  const {user, setUser} = React.useContext(UserContext);
   const submitHandler = async (e) => {
     e.preventDefault();
     // setUserData({
@@ -25,9 +25,9 @@ const UserSignup = () => {
     // });
 
     const newUser = {
-      fullName: {
-        firstName: firstName,
-        lastName: lastName
+      fullname: {
+        firstname: firstName,
+        lastame: lastName
       },
       email: email,
       password: password
