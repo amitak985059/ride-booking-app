@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Start from './pages/Start';
-import UserLogin from './pages/UserLogin'; // Corrected import
+import UserLogin from './pages/UserLogin'; 
 import UserSignup from './pages/UserSignup';
 import CaptainLogin from './pages/CaptainLogin';
 import CaptainSignup from './pages/CaptainSignup';
@@ -9,6 +9,8 @@ import Home from './pages/Home';
 import UserLogout from './pages/UserLogout';
 import UserProtectWrapper from './pages/UserProtectWrapper';
 import CaptainHome from './pages/CaptainHome';
+import CaptainProtectWrapper from './pages/CaptainProtectWrapper';
+
 
 const App = () => {
   return (
@@ -21,7 +23,7 @@ const App = () => {
         <Route path="/captain-signup" element={<CaptainSignup />} />
         <Route path="/home" element={<UserProtectWrapper><Home /></UserProtectWrapper>} />
         <Route path='/user/logout' element={<UserProtectWrapper> <UserLogout /> </UserProtectWrapper>} />
-        <Route path='/captain-home' element={<CaptainHome/>} />
+        <Route path='/captain-home' element={ <CaptainProtectWrapper><CaptainHome/></CaptainProtectWrapper> } />
       </Routes>
     </div>
   );
