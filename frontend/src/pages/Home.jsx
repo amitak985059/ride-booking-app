@@ -26,13 +26,14 @@ const Home = () => {
       });
     }
   }, [panelOpen]);
-
+  const uberLogo = "https://upload.wikimedia.org/wikipedia/commons/5/58/Uber_logo_2018.svg"
+  const backgroundPicture = "https://images.unsplash.com/photo-1650217124806-36e7a0b7afb8?q=80&w=3027&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   return (
     <div>
       {/* Logo */}
       <img
         className="w-16 h-10 absolute left-5 top-5"
-        src="https://upload.wikimedia.org/wikipedia/commons/5/58/Uber_logo_2018.svg"
+        src={uberLogo}
         alt=""
       />
 
@@ -40,7 +41,7 @@ const Home = () => {
       <div>
         <img
           className="w-screen object-cover h-screen"
-          src="https://images.unsplash.com/photo-1650217124806-36e7a0b7afb8?q=80&w=3027&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src={backgroundPicture}
           alt="Uber ride animation"
         />
       </div>
