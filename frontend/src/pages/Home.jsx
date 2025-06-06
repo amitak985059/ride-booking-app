@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-
+import LocationSearchPael from '../components/LocationSearchPael';
 const Home = () => {
   const [pickup, setPickup] = useState('');
   const [destination, setDestination] = useState('');
@@ -84,7 +84,9 @@ const Home = () => {
           <div className="p-5 text-black">
             <h2 className="text-xl font-semibold">Suggested Locations</h2>
             {/* Add more content here */}
+            <LocationSearchPael />
           </div>
+          
         </div>
       </div>
     </div>
