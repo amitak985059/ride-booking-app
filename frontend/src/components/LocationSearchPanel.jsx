@@ -3,6 +3,7 @@ import 'remixicon/fonts/remixicon.css';
 
 const LocationSearchPanel = ({ setVehiclePanel }) => {
   const Locations = [
+    "347/138 Purana Tikait Ganj Bairagi Tola haiderganj Lucknoe",
     "12 Hidaerganj Tiraha",
     "78 Hidaerganj Tiraha",
     "98 Hidaerganj Tiraha",
