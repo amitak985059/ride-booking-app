@@ -4,6 +4,10 @@ import gsap from 'gsap'
 import 'remixicon/fonts/remixicon.css'
 import LocationSearchPanel from '../components/LocationSearchPanel'
 import VehiclePanel from '../components/VehiclePanel'
+import ConfirmRidePanel from '../components/ConfirmRide'
+import ConfirmRide from '../components/ConfirmRide'
+import LookingForDriver from '../components/LookingForDriver'
+import WaitingForDriiver from '../components/WaitingForDriiver'
 const Home = () => {
   const [pickup, setPickup] = useState('')
   const [destination, setDestination] = useState('')
@@ -11,7 +15,11 @@ const Home = () => {
   const panelRef = useRef(null)
   const panelCloseRef = useRef(null)
   const vehiclePanelRef = useRef(null)
+  const confirmPanelRef = useRef(null)
+  const vehicleFoundRef = useRef(null)
   const [vehiclePanel, setVehiclePanel] = useState(false)
+  const [confirmRidePanel, setConfirmRidePanel] = useState(false)
+  const [vehicleFound, setVehicleFound] = useState(false)
   const submitHandler = (e) => {
     e.preventDefault()
   }
@@ -40,13 +48,37 @@ const Home = () => {
       gsap.to(vehiclePanelRef.current, {
         transform: 'translateY(0%)',
       })
-    }else{
+    } else {
       gsap.to(vehiclePanelRef.current, {
         transform: 'translateY(100%)',
       })
     }
 
   }, [vehiclePanel])
+  useGSAP(() => {
+    if (confirmRidePanel) {
+      gsap.to(confirmPanelRef.current, {
+        transform: 'translateY(0%)',
+      })
+    } else {
+      gsap.to(confirmPanelRef.current, {
+        transform: 'translateY(100%)',
+      })
+    }
+
+  }, [confirmRidePanel])
+  useGSAP(() => {
+    if (vehicleFound) {
+      gsap.to(vehicleFoundRef.current, {
+        transform: 'translateY(0%)',
+      })
+    } else {
+      gsap.to(vehicleFoundRef.current, {
+        transform: 'translateY(100%)',
+      })
+    }
+
+  }, [vehicleFound])
   return (
     <div className='h-screen relative overflow-hidden'>
       <img className='fixed absolute  top-5 left-5 w-16' src="https://upload.wikimedia.org/wikipedia/commons/5/58/Uber_logo_2018.svg" alt="" />
@@ -74,7 +106,16 @@ const Home = () => {
 
 
       <div ref={vehiclePanelRef} className="fixed z-10 bottom-0 bg-white w-full ">
-        <VehiclePanel setVehiclePanel={setVehiclePanel} />
+        <VehiclePanel setConfirmRidePanel={setConfirmRidePanel} setVehiclePanel={setVehiclePanel} />
+      </div>
+      <div ref={confirmPanelRef} className="fixed z-10 bottom-0 bg-white w-full px-3 py-6 pt-12 ">
+        <ConfirmRide setConfirmRidePanel={setConfirmRidePanel} setVehicleFound={setVehicleFound}/>
+      </div>
+      <div ref={vehicleFoundRef} className="fixed z-10 bottom-0 bg-white w-full px-3 py-6 pt-12 ">
+          <LookingForDriver setVehicleFound={setVehicleFound}  />
+      </div>
+      <div  className="fixed z-10 bottom-0 bg-white w-full px-3 py-6 pt-12 ">
+          <WaitingForDriiver  />
       </div>
     </div>
   )
