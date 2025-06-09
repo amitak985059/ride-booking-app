@@ -1,7 +1,7 @@
 import React from 'react';
 import 'remixicon/fonts/remixicon.css';
 
-const LocationSearchPanel = ({ setVehiclePanel }) => {
+const LocationSearchPanel = (props) => {
   const Locations = [
     "347/138 Purana Tikait Ganj Bairagi Tola haiderganj Lucknoe",
     "12 Hidaerganj Tiraha",
@@ -19,7 +19,7 @@ const LocationSearchPanel = ({ setVehiclePanel }) => {
           key={index}
           onClick={() => {
 
-            setVehiclePanel(true);
+            props.setVehiclePanel(true);
           }}
 
           className="flex items-center justify-start gap-4 pt-2 active:border-2 cursor-pointer"
