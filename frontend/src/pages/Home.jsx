@@ -2,6 +2,7 @@ import React, { use, useRef , useState} from 'react'
 import {useGSAP} from '@gsap/react'
 import gsap from 'gsap'
 import 'remixicon/fonts/remixicon.css'
+import LocationSearchPanel from '../components/LocationSearchPanel'
 const Home = () => {
   const [pickup, setPickup] = useState('')
   const [destination, setDestination] = useState('')
@@ -35,7 +36,7 @@ const Home = () => {
       <img className='fixed absolute  top-5 left-5 w-16' src="https://upload.wikimedia.org/wikipedia/commons/5/58/Uber_logo_2018.svg" alt="" />
 
       <div className='h-screen w-screen'>
-        <img className='w-full h-full object-cover' src="https://developers.google.com/static/maps/images/landing/hero_mobile_maps_sdks_new_colors.png" alt="" />
+        <img className='w-full h-full object-cover' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4VjsvYqXpEkX11RLR8PyL-IV5D6YC0PcTRQ&s" alt="" />
       </div>
 
       <div className='flex flex-col justify-end absolute top-0 w-full  h-screen'>
@@ -49,8 +50,8 @@ const Home = () => {
             <input onClick={() => {setPanelOpen(true)} } value={destination} onChange={(e) => {setDestination(e.target.value)}} className="bg=[#eee] px-8 py-2 text-lg rounded-lg w-full" type="text" placeholder='Enter drop location' />
           </form>
         </div>
-        <div ref={panelRef} className=' bg-red-500 '>
-
+        <div ref={panelRef} className=' bg-[#eee] '>
+          <LocationSearchPanel setVehiclePanel={setPanelOpen} />
         </div>
       </div>
     </div>
