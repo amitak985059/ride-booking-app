@@ -7,7 +7,7 @@ import VehiclePanel from '../components/VehiclePanel'
 import ConfirmRidePanel from '../components/ConfirmRide'
 import ConfirmRide from '../components/ConfirmRide'
 import LookingForDriver from '../components/LookingForDriver'
-import WaitingForDriiver from '../components/WaitingForDriver'
+import WaitingForDriver from '../components/WaitingForDriver'
 
 const Home = () => {
   const [pickup, setPickup] = useState('')
@@ -18,9 +18,11 @@ const Home = () => {
   const vehiclePanelRef = useRef(null)
   const confirmPanelRef = useRef(null)
   const vehicleFoundRef = useRef(null)
+  const waitingForDriverRef = useRef(null)
   const [vehiclePanel, setVehiclePanel] = useState(false)
   const [confirmRidePanel, setConfirmRidePanel] = useState(false)
   const [vehicleFound, setVehicleFound] = useState(false)
+  const [waitingForDriver, setWaitingForDriver] = useState(false)
   const submitHandler = (e) => {
     e.preventDefault()
   }
@@ -80,6 +82,18 @@ const Home = () => {
     }
 
   }, [vehicleFound])
+  useGSAP(() => {
+    if (waitingForDriver) {
+      gsap.to(waitingForDriverRef.current, {
+        transform: 'translateY(0%)',
+      })
+    } else {
+      gsap.to(waitingForDriverRef.current, {
+        transform: 'translateY(100%)',
+      })
+    }
+
+  }, [waitingForDriver])
   return (
     <div className='h-screen relative overflow-hidden'>
       <img className='fixed absolute  top-5 left-5 w-16' src="https://upload.wikimedia.org/wikipedia/commons/5/58/Uber_logo_2018.svg" alt="" />
@@ -115,10 +129,11 @@ const Home = () => {
       <div ref={vehicleFoundRef} className="fixed z-10 bottom-0 bg-white w-full px-3 py-6 pt-12 ">
         <LookingForDriver setVehicleFound={setVehicleFound} />
       </div>
-      <div className="fixed z-10 bottom-0 bg-white w-full px-3 py-6 pt-12 ">
-        <WaitingForDriiver />
+      <div ref={waitingForDriverRef} className="fixed z-10 bottom-0 bg-white w-full px-3 py-6 pt-12 ">
+        <WaitingForDriver waitingForDriver={waitingForDriver} />
       </div>
     </div>
+
   )
 }
 

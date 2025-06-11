@@ -3,7 +3,8 @@ import React from 'react'
 const WaitingForDriver = (props) => {
   return (
     <div>
-      <h5 className='p1 text-center w[93%] absolute top-0' onClick={() => { props.setConfirmRidePanel(false) }}>
+      <h5 className='p1 text-center w[93%] absolute top-0'
+        onClick={() => { props.WaitingForDriver(false) }} >
         <i className="text-3xl text-gray-600 ri-arrow-down-fill"></i>
       </h5>
       <div className="flex items-center justify-between bg-white shadow-md rounded-2xl p-4 max-w-md mx-auto">
