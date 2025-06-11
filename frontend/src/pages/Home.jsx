@@ -7,7 +7,8 @@ import VehiclePanel from '../components/VehiclePanel'
 import ConfirmRidePanel from '../components/ConfirmRide'
 import ConfirmRide from '../components/ConfirmRide'
 import LookingForDriver from '../components/LookingForDriver'
-import WaitingForDriiver from '../components/WaitingForDriiver'
+import WaitingForDriiver from '../components/WaitingForDriver'
+
 const Home = () => {
   const [pickup, setPickup] = useState('')
   const [destination, setDestination] = useState('')
@@ -109,13 +110,13 @@ const Home = () => {
         <VehiclePanel setConfirmRidePanel={setConfirmRidePanel} setVehiclePanel={setVehiclePanel} />
       </div>
       <div ref={confirmPanelRef} className="fixed z-10 bottom-0 bg-white w-full px-3 py-6 pt-12 ">
-        <ConfirmRide setConfirmRidePanel={setConfirmRidePanel} setVehicleFound={setVehicleFound}/>
+        <ConfirmRide setConfirmRidePanel={setConfirmRidePanel} setVehicleFound={setVehicleFound} />
       </div>
       <div ref={vehicleFoundRef} className="fixed z-10 bottom-0 bg-white w-full px-3 py-6 pt-12 ">
-          <LookingForDriver setVehicleFound={setVehicleFound}  />
+        <LookingForDriver setVehicleFound={setVehicleFound} />
       </div>
-      <div  className="fixed z-10 bottom-0 bg-white w-full px-3 py-6 pt-12 ">
-          <WaitingForDriiver  />
+      <div className="fixed z-10 bottom-0 bg-white w-full px-3 py-6 pt-12 ">
+        <WaitingForDriiver />
       </div>
     </div>
   )
