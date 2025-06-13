@@ -3,7 +3,7 @@ import { createContext, useState, useContext } from "react";
 export const CaptainDataContext = createContext();
 
 // export const useCaptain = () => {
-//     const captain = useContext(CaptainContext);  for now we dont need this thats why we removed it
+//     const context = useContext(CaptainContext);  
 //     if (!captain) {
 //         throw new Error("useCaptain must be used within a CaptainProvider");
 //     }
@@ -35,6 +35,4 @@ const CaptainContext = ({ children }) => {
         </CaptainDataContext.Provider>
     );
 }
-
-
 export default CaptainContext;
