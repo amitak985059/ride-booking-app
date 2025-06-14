@@ -15,9 +15,7 @@ connectToDb();
 app.use(cors());
 
 
-app.get('/', (req, res) =>{
-    res.send('hello works')
-})
+
 
 app.use('/users', userRoutes);
 app.use('/captains', captainRoutes)
