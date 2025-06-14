@@ -2,7 +2,7 @@
 
 Hey recruiter or fellow viewer, this is a simple web app with a frontend and a backend. To run this project in your pc, follow these steps:
 
-1. First, download the project from github by copying the link from the green button above and pasting it into your terminal and typing `git clone <link>`. This will download the project into a folder in your computer.
+1. First, download the project from github by copying the link from the green button above and pasting it into your terminal and typing `git clone https://github.com/amitak985059/ride-booking-app.git`. This will download the project into a folder in your computer.
 
 2. Now, open your terminal and type `cd frontend`. This will take you into the frontend folder of the project.
 
