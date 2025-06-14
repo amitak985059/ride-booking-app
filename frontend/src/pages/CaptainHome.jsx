@@ -9,7 +9,7 @@ import ConfirmRidePopup from '../components/ConfirmRidePopup';
 
 const CaptainHome = () => {
   const [ridePopupPanel, setRidePopupPanel] = useState(true);
-  const [confirmRidePopupPanel, setConfirmRidePopupPanel] = useState(true);
+  const [confirmRidePopupPanel, setConfirmRidePopupPanel] = useState(false);
   const ridePopupPanelRef = useRef(null);
   const confirmRidePopupRef = useRef(null);
 

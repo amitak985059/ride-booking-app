@@ -40,9 +40,11 @@ const RidePopUp = (props) => {
                         </div>
                     </div>
                 </div>
+                <div className='flex gap-4 items-center justify-between w-full '>
+                    <button onClick={() => { props.setConfirmRidePopupPanel(true) }} className='w-full bg-black text-white py-3'>Accept</button>
+                    <button onClick={() => { props.setRidePopupPanel(false) }} className='w-full py-3 bg-white-700 text-gray-700 bg-gray-400'>Ignore</button>
 
-                <button onClick={() => { props.setConfirmRidePopupPanel(true) }} className='w-full bg-black text-white py-3'>Accept</button>
-                <button onClick={() => { props.setRidePopupPanel(false) }} className='w-full py-3 bg-white-700 text-gray-700 bg-gray-400'>Ignore</button>
+                </div>
             </div>
         </div>
     )
